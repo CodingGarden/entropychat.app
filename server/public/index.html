@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>A FeathersJS application</title>
+    <meta name="description" content="A FeathersJS server">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html, body {
+        font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
+        font-weight: 400;
+        font-size: 16px;
+        background: #290016;
+        color: #dc136c;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      h1 { margin: 1em 0 0 0; font-weight: 300; }
+    </style>
+  </head>
+  <body>
+    <img src="https://i.imgur.com/KQDKLRa.png">
+    <h1 id="info">Logging you in...</h1>
+    <script>
+      const params = new URLSearchParams(window.location.hash.slice(1));
+      const token = params.get('access_token');
+      if (window.opener && token) {
+        // TODO: dynamically set origin
+        window.opener.postMessage({ token }, 'http://localhost:8081');
+      } else {
+        info.textContent = 'Go home.';
+      }
+      window.close();
+    </script>
+  </body>
+</html>
