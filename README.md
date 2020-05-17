@@ -1,4 +1,4 @@
-![entropychat.app](assets/logo.png)
+![entropychat.app](assets/logo-bg.png)
 
 A discord clone made by the Coding Garden Community.
 
