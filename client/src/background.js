@@ -1,10 +1,12 @@
 
-import { app, protocol, BrowserWindow } from 'electron';
+import { app, protocol, BrowserWindow, session} from 'electron';
+import { autoUpdater } from 'electron-updater';
 import {
   createProtocol,
   /* installVueDevtools */
 } from 'vue-cli-plugin-electron-builder/lib';
-
+import { ElectronBlocker } from '@cliqz/adblocker-electron';
+import fetch from 'cross-fetch';
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -32,10 +34,27 @@ function createWindow() {
     createProtocol('app');
     // Load the index.html when not in development
     win.loadURL('app://./index.html');
+
+    //check for updates
+    autoUpdater.checkForUpdatesAndNotify();
   }
+
+  const ses = win.webContents.session;
 
   win.on('closed', () => {
     win = null;
+    // clean storages after closing app
+    ses.clearStorageData({
+      storages: ['localstorage', 'caches', 'indexdb']
+    })
+  });
+
+  win.setMenu(null);
+
+  // Block ads
+  ElectronBlocker.fromPrebuiltAdsAndTracking(fetch)
+  .then((blocker) =>{
+    blocker.enableBlockingInSession(ses);
   });
 }
 
