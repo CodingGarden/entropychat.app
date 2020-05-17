@@ -38,8 +38,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../styles/abstracts/variables';
-
 .chatbox {
   width: 100%;
   height: 70px;
