@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>A FeathersJS application</title>
-    <meta name="description" content="A FeathersJS server">
+    <title>entropychat.app</title>
+    <meta name="description" content="entropychat.app">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
       * {
@@ -36,7 +36,7 @@
       const token = params.get('access_token');
       if (window.opener && token) {
         // TODO: dynamically set origin
-        window.opener.postMessage({ token }, 'http://localhost:8081');
+        window.opener.postMessage({ token }, 'http://localhost:8080');
       } else {
         info.textContent = 'Go home.';
       }
