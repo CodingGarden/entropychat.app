@@ -1,0 +1,29 @@
+.icon {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+}
+
+.icon-s {
+  width: 15px;
+  height: 15px;
+}
+
+.icon-m {
+  width: 30px;
+  height: 30px;
+}
+
+.icon-l {
+  width: 45px;
+  height: 45px;
+}
+
+.icon-xl {
+  width: 60px;
+  height: 60px;
+}
+
+.icon-xxl {
+  width: 120px;
+  height: 120px;
+}
