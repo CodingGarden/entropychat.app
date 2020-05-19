@@ -25,8 +25,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../styles/abstracts/variables';
-
 .navbar {
   background: $bg_dark;
   width: 100%;

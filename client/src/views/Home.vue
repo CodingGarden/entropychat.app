@@ -52,8 +52,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/abstracts/variables';
-
 .home {
   width: 100%;
   height: 100%;

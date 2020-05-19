@@ -10,8 +10,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/abstracts/variables';
-
 .button {
   background: $primary;
   color: $font_color;

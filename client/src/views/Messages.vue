@@ -67,8 +67,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../styles/abstracts/variables';
-
 .messages {
   display: flex;
   width: 100%;
