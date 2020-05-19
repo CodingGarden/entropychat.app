@@ -44,9 +44,9 @@ function createWindow() {
   win.on('closed', () => {
     win = null;
     // clean storages after closing app
-    ses.clearStorageData({
-      storages: ['localstorage', 'caches', 'indexdb']
-    })
+    //ses.clearStorageData({
+    //  storages: ['localstorage', 'caches', 'indexdb']
+    //})
   });
 
   win.setMenu(null);
