@@ -1,6 +1,6 @@
 {
   "host": "localhost",
-  "port": 3030,
+  "port": "PORT",
   "public": "../public/",
   "paginate": {
     "default": 10,
@@ -30,5 +30,5 @@
       }
     }
   },
-  "mongodb": "mongodb://localhost:27017/entropychat_app"
+  "mongodb": "MONGO_URL"
 }

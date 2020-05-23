@@ -1,0 +1,28 @@
+version: '3.7'
+services:
+  server:
+    build: ./server
+    ports:
+      - 3000:3000
+    environment:
+      MONGO_URL: mongodb://mongo:27017/entropychat
+    volumes:
+      - ./server:/app
+    links:
+      - mongo
+  landing:
+    build:
+      context: ./landing-page
+    ports:
+      - 3001:80
+    volumes:
+      - ./landing-page://usr/share/nginx/html
+  mongo:
+    image: mongo:4.2
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: SillyDefaultPassword
+      MONGO_INITDB_DATABASE: entropychat
+
