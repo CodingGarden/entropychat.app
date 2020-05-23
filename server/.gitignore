@@ -111,3 +111,5 @@ lib/
 data/
 
 .env
+
+docker-data
