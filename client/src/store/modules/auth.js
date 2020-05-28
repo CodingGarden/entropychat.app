@@ -1,5 +1,7 @@
 import feathers from '../../feathers';
 
+const loading = () => new Promise((resolve) => setTimeout(resolve, 5000));
+
 export default {
   namespaced: true,
   state: {
@@ -12,7 +14,7 @@ export default {
       try {
         state.loading = true;
         const user = await feathers.reAuthenticate();
-        await new Promise((resolve) => setTimeout(resolve, 3000));
+        await loading();
         state.user = user.user;
       } catch (error) {}
       state.loading = false;
@@ -33,7 +35,7 @@ export default {
             strategy: 'jwt',
             accessToken: event.data.token,
           });
-          await new Promise((resolve) => setTimeout(resolve, 3000));
+          await loading();
           state.user = user.user;
         }
         state.loading = false;

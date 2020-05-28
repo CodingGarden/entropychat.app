@@ -1,4 +1,4 @@
 {
-  "host": "entropychat-app-app.feathersjs.com",
+  "host": "api.entropychat.app",
   "port": "PORT"
 }
