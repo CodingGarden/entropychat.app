@@ -1,12 +1,10 @@
-version: "3.7"
+version: '3.7'
 services:
   db:
     image: mongo:4
     restart: always
     volumes:
-      - mongodb:/data/db
-    ports:
-      - 27017:27017
+      - ./docker-data/db:/data/db
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
@@ -38,4 +36,3 @@ services:
 volumes:
   npm_cache:
   node_modules:
-  mongodb:
