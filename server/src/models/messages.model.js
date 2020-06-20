@@ -1,5 +1,5 @@
 // messages-model.js - A mongoose model
-//
+// 
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
 module.exports = function (app) {
@@ -19,5 +19,5 @@ module.exports = function (app) {
     mongooseClient.deleteModel(modelName);
   }
   return mongooseClient.model(modelName, schema);
-
+  
 };
