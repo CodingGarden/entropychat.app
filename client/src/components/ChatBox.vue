@@ -22,8 +22,6 @@ export default {
 
     const sendMessage = () => {
       createMessage({
-        // TODO: set on backend...
-        user_id: user.value._id,
         text: message.value,
       });
       message.value = '';
