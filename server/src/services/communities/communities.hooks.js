@@ -1,28 +1,29 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
 const { setField } = require('feathers-authentication-hooks');
-const { disallow } = require('feathers-hooks-common');
-
-const internalOnly = disallow('external');
 
 const limitToUser = setField({
   from: 'params.user._id',
-  as: 'params.query._id'
+  as: 'params.query.owner_id'
 });
 
 module.exports = {
   before: {
-    all: [],
-    find: [ authenticate('jwt'), limitToUser ],
-    get: [ authenticate('jwt'), limitToUser ],
-    create: [ internalOnly ],
-    update: [ internalOnly ],
-    patch: [ internalOnly ],
-    remove: [ authenticate('jwt'), limitToUser ]
+    all: [ authenticate('jwt') ],
+    find: [],
+    get: [],
+    create: [
+      setField({
+        from: 'params.user._id',
+        as: 'data.owner_id'
+      }),
+    ],
+    update: [limitToUser],
+    patch: [limitToUser],
+    remove: [limitToUser]
   },
 
   after: {
-    all: [ 
-    ],
+    all: [],
     find: [],
     get: [],
     create: [],
