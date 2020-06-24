@@ -1,10 +1,10 @@
-version: "3.7"
+version: '3.7'
 services:
   db:
     image: mongo:4
     restart: always
     volumes:
-      - mongodb:/data/db
+      - ./docker-data/db:/data/db
     ports:
       - 27018:${MONGO_PORT}
     environment:
@@ -21,7 +21,7 @@ services:
     volumes:
       - ./:/usr/src/app:cached
       - npm_cache:/root/.npm:delegated
-      - node_modules:/app/node_modules:delegated
+      - node_modules:/usr/src/app/node_modules:delegated
     ports:
       - ${PORT}:${PORT}
     environment:
@@ -38,4 +38,3 @@ services:
 volumes:
   npm_cache:
   node_modules:
-  mongodb:

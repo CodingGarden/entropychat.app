@@ -2,7 +2,7 @@
   <div class="messages">
     <Navbar></Navbar>
     <main class="messages__main">
-      <div>
+      <div class="messages__main--body">
         <Message v-for="message in messages" :key="message._id" :message="message" />
       </div>
       <ChatBox class="messages__main--bottom" />
@@ -79,6 +79,48 @@ export default {
   height: 100%;
   position: relative;
 }
+
+.messages__main--body {
+  height: 100%;
+  overflow-y: scroll;
+  padding-bottom: 70px; /* this is the chatbox height probably wants to be more responsive */
+}
+
+.messages__main--body::-webkit-scrollbar {
+    position: relative;
+    width: 7px;
+    height: 8px;
+}
+
+.messages__main--body::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+.messages__main--body::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: $primary;
+}
+
+.messages__main--body::before {
+  content: '';
+  position: absolute;
+  width: 100vw;
+  height: 50vh;
+  background: linear-gradient($bg 1%, rgba(1,1,1,0));
+  top: 0px;
+}
+
+
+.messages__main--body::after {
+  content: '';
+  position: absolute;
+  width: 100vw;
+  height: 50vh;
+  background: linear-gradient(rgba(1,1,1,0) 80%, $bg);
+  bottom: 0px;
+}
+
+
 
 .messages__main--bottom {
   position: absolute;
