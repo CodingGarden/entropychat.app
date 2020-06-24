@@ -113,5 +113,3 @@ data/
 .env
 
 docker-data
-
-.yml
