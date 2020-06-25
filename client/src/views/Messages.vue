@@ -104,7 +104,7 @@ export default {
   content: '';
   position: absolute;
   width: 100vw;
-  height: 20vh;
+  height: 1rem;
   background: linear-gradient($bg 1%, rgba(1,1,1,0));
   top: 0px;
 }
