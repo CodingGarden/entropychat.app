@@ -87,13 +87,12 @@ export default {
 }
 
 .messages__main--body::-webkit-scrollbar {
-    position: relative;
     width: 7px;
-    height: 8px;
 }
 
 .messages__main--body::-webkit-scrollbar-track {
     border-radius: 10px;
+    background: $bg-dark;
 }
 
 .messages__main--body::-webkit-scrollbar-thumb {
@@ -105,7 +104,7 @@ export default {
   content: '';
   position: absolute;
   width: 100vw;
-  height: 50vh;
+  height: 20vh;
   background: linear-gradient($bg 1%, rgba(1,1,1,0));
   top: 0px;
 }
