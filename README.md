@@ -25,6 +25,7 @@ https://entropychat.app
   * The authorization callback URL should be set to:
     * http://localhost:3030/oauth/github/callback
       * Change the port if your feathers backend is running on a different port
+  * Note: for `MONGO_HOST`, if running on docker use the `container-name` of db service. Otherwise, the host/ip address of your mongodb instance.
 * The oauth flow requires that the client is running at:
   * http://localhost:8080
   * If your client is running on a different port, you will need to update [server/public/index.html](server/public/index.html) to allow sending messages to the correct port / origin

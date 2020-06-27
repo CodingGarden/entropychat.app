@@ -2,18 +2,21 @@ version: '3.7'
 services:
   db:
     image: mongo:4
+    container_name: server_db
     restart: always
     volumes:
       - ./docker-data/db:/data/db
+      - ./mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh
     ports:
       - 27018:${MONGO_PORT}
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_DB_NAME}
 
   api:
-    # TODO: wait for mongodb to be available...
     image: entropychat.api
+    container_name: server_api
     build: .
     restart: on-failure
     depends_on:
