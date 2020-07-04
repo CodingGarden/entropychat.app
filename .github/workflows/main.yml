@@ -1,5 +1,8 @@
 name: Publish Docker image
 on:
+  push:
+    branches:
+      - master
   release:
     types: [published]
 jobs:
@@ -9,9 +12,6 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
-      - run: |
-          cd server
-          pwd
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v1
         with:
@@ -19,5 +19,5 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
           path: server/.
           registry: docker.pkg.github.com
-          repository: ${{ github.repository}}/entropychat.app/entropychat.api
+          repository: nicomigueles/entropychat.app/entropychat.api
           tag_with_ref: true
