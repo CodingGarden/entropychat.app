@@ -1,8 +1,5 @@
 name: Publish Docker image
 on:
-  push:
-    branches:
-      - master
   release:
     types: [published]
 jobs:
@@ -22,5 +19,5 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
           path: server/.
           registry: docker.pkg.github.com
-          repository: nicomigueles/entropychat.app/entropychat.api
+          repository: ${{ github.repository}}/entropychat.app/entropychat.api
           tag_with_ref: true
