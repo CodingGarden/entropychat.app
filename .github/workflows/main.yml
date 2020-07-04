@@ -20,6 +20,7 @@ jobs:
         with:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+          path: server/.
           registry: docker.pkg.github.com
           repository: nicomigueles/entropychat.app/entropychat.api
           tag_with_ref: true
