@@ -29,9 +29,13 @@ export default {
   setup() {
     const message = ref('');
 
-    const { user } = useState('auth', ['user');
+    const { user } = useState('auth', [
+      'user'
+     ]);
 
-    const { createMessage } = useActions('messages', ['createMessage']);
+    const { createMessage } = useActions('messages', [
+      'createMessage'
+    ]);
 
     const sendMessage = () => {
       createMessage({
@@ -42,9 +46,9 @@ export default {
 
     return {
       sendMessage,
-      message
+      message,
     };
-  }
+  },
 };
 </script>
 
