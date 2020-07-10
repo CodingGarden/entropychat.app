@@ -30,16 +30,16 @@ export default {
     const message = ref('');
 
     const { user } = useState('auth', [
-      'user'
+      'user',
      ]);
 
     const { createMessage } = useActions('messages', [
-      'createMessage'
+      'createMessage',
     ]);
 
     const sendMessage = () => {
       createMessage({
-        text: message.value
+        text: message.value,
       });
       message.value = '';
     };
