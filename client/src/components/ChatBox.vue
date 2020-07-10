@@ -22,22 +22,22 @@
 </template>
 
 <script>
-import { ref } from "@vue/composition-api";
-import { useState, useActions } from "@u3u/vue-hooks";
+import { ref } from '@vue/composition-api';
+import { useState, useActions } from '@u3u/vue-hooks';
 
 export default {
   setup() {
-    const message = ref("");
+    const message = ref('');
 
-    const { user } = useState("auth", ["user"]);
+    const { user } = useState('auth', ['user');
 
-    const { createMessage } = useActions("messages", ["createMessage"]);
+    const { createMessage } = useActions('messages', ['createMessage']);
 
     const sendMessage = () => {
       createMessage({
         text: message.value
       });
-      message.value = "";
+      message.value = '';
     };
 
     return {
