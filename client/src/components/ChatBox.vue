@@ -31,7 +31,7 @@ export default {
 
     const { user } = useState('auth', [
       'user',
-     ]);
+    ]);
 
     const { createMessage } = useActions('messages', [
       'createMessage',
