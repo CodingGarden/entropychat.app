@@ -1,0 +1,13 @@
+name: Deploy Latest Docker Image
+  on:
+    release:
+      types: [published]
+  jobs:
+    Deploy_Latest_Docker:
+      uses: garygrossgarten/github-action-ssh@release
+      with:
+        command: docker-compose up
+        host: ${{ secrets.HOST }}
+        username: REPLACE_WITH_AWS_USERNAME
+        passphrase: ${{ secrets.PASSPHRASE }}
+        privateKey: ${{ secrets.PRIVATE_KEY}}
