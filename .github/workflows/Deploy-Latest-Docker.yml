@@ -4,9 +4,9 @@ on:
     branches:
       - master
       - Feature-Issue-36
-    release:
-      types: [published]
-  jobs:
+  release:
+    types: [published]
+jobs:
     Deploy_Latest_Docker:
       uses: garygrossgarten/github-action-ssh@release
       with:
