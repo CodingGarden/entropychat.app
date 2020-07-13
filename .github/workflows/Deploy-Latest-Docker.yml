@@ -16,6 +16,6 @@ jobs:
         with:
           command: docker-compose up
           host: ${{ secrets.HOST }}
-          username: ChaneyAWSTesting
+          username: bitnami
           passphrase: ${{ secrets.PASSPHRASE }}
           privateKey: ${{ secrets.PRIVATE_KEY}}
