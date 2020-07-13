@@ -1,9 +1,9 @@
 name: Deploy Latest Docker Image
-  on:
-    push:
-      branches:
-        - master
-        - Feature-Issue-36
+on:
+  push:
+    branches:
+      - master
+      - Feature-Issue-36
     release:
       types: [published]
   jobs:
