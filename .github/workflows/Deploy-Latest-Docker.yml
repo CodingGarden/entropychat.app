@@ -1,5 +1,9 @@
 name: Deploy Latest Docker Image
   on:
+    push:
+      branches:
+        - master
+        - Feature-Issue-36
     release:
       types: [published]
   jobs:
@@ -8,6 +12,6 @@ name: Deploy Latest Docker Image
       with:
         command: docker-compose up
         host: ${{ secrets.HOST }}
-        username: REPLACE_WITH_AWS_USERNAME
+        username: ChaneyAWSTesting
         passphrase: ${{ secrets.PASSPHRASE }}
         privateKey: ${{ secrets.PRIVATE_KEY}}
