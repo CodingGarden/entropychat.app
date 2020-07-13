@@ -8,10 +8,14 @@ on:
     types: [published]
 jobs:
     Deploy_Latest_Docker:
-      uses: garygrossgarten/github-action-ssh@release
-      with:
-        command: docker-compose up
-        host: ${{ secrets.HOST }}
-        username: ChaneyAWSTesting
-        passphrase: ${{ secrets.PASSPHRASE }}
-        privateKey: ${{ secrets.PRIVATE_KEY}}
+      name: Deploy_Latest_Docker
+      runs-on: ubuntu-latest
+      steps:
+        -name: run docker-compose up
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: docker-compose up
+          host: ${{ secrets.HOST }}
+          username: ChaneyAWSTesting
+          passphrase: ${{ secrets.PASSPHRASE }}
+          privateKey: ${{ secrets.PRIVATE_KEY}}
