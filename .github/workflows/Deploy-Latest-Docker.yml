@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - master
-      - Feature-Issue-36
   release:
     types: [published]
 jobs:
@@ -16,6 +15,6 @@ jobs:
         with:
           command: sudo docker-compose up -d
           host: ${{ secrets.HOST }}
-          username: bitnami
+          username: AWS_USERNAME_GOES_HERE
           passphrase: ${{ secrets.PASSPHRASE }}
           privateKey: ${{ secrets.PRIVATE_KEY }}
