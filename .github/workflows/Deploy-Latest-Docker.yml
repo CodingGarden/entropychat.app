@@ -11,7 +11,7 @@ jobs:
       name: Deploy_Latest_Docker
       runs-on: ubuntu-latest
       steps:
-        -name: run docker-compose up
+      - name: run docker-compose up
         uses: garygrossgarten/github-action-ssh@release
         with:
           command: docker-compose up
