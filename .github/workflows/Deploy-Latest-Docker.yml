@@ -14,7 +14,7 @@ jobs:
       - name: run docker-compose up
         uses: garygrossgarten/github-action-ssh@release
         with:
-          command: sudo docker-compose up
+          command: sudo docker-compose up -d
           host: ${{ secrets.HOST }}
           username: bitnami
           passphrase: ${{ secrets.PASSPHRASE }}
