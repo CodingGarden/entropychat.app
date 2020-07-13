@@ -18,4 +18,4 @@ jobs:
           host: ${{ secrets.HOST }}
           username: bitnami
           passphrase: ${{ secrets.PASSPHRASE }}
-          privateKey: ${{ secrets.PRIVATE_KEY}}
+          privateKey: ${{ secrets.PRIVATE_KEY }}
