@@ -50,7 +50,7 @@ export default {
   border-radius: 0px 100px 100px 0px;
 }
 
-.chatbox_button:hover {
+.chatbox__button:hover {
   background: lighten($primary_accent, 50%);
   cursor: pointer;
 }
