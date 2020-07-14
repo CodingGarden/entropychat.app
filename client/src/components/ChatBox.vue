@@ -1,22 +1,8 @@
 <template>
   <form class="chatbox" @submit.prevent="sendMessage()">
-    <input v-model="message" class="chatbox__input" placeholder="Send a Message" />
-    <button type="submit" class="like" name="foo" value="bar">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="feather feather-send"
-      >
-        <line x1="22" y1="2" x2="11" y2="13" />
-        <polygon points="22 2 15 22 11 13 2 9 22 2" />
-      </svg>
+    <input v-model="message" class="chatbox__input" placeholder="Send on hella Message" />
+    <button type="submit" class="chatbox__button" name="send">
+      <img src="@/assets/icons/send.png" alt="send">
     </button>
   </form>
 </template>
@@ -53,6 +39,26 @@ export default {
 </script>
 
 <style lang="scss">
+.chatbox__button {
+  background: $primary_accent;
+  padding: 0 2rem;
+  width: 8%;
+  height: 70%;
+  outline: none;
+  border: none;
+  color: $font_color;
+  border-radius: 0px 100px 100px 0px;
+}
+
+.chatbox_button:hover {
+  background: lighten($primary_accent, 50%);
+  cursor: pointer;
+}
+
+.chatbox__button img{
+  max-height: 70%;
+}
+
 .chatbox {
   width: 100%;
   height: 70px;
@@ -75,22 +81,6 @@ export default {
 
   &::placeholder {
     color: transparentize(white, 0.6);
-  }
-
-  .chatbox button {
-    background: $primary_accent;
-    padding: 0 2rem;
-    width: 8%;
-    height: 70%;
-    outline: none;
-    border: none;
-    color: $font_color;
-    border-radius: 0px 100px 100px 0px;
-  }
-
-  .chatbox button:hover {
-    background: lighten($primary_accent, 50%);
-    cursor: pointer;
   }
 }
 </style>
