@@ -1,27 +1,27 @@
 <template>
-  <div id="menu-bar">
-     <div class="app-title" role="menu">
+  <div id="title-bar">
+     <div role="menu">
        <img src="../../public/favicon-16x16.png" class="titlebar-logo" />
        <h5>Entropychat</h5>
      </div>
      <div class="right">
-       <button class="menubar-btn" id="minimize-btn" @click="minimizeWindow()"><i class="far fa-window-minimize"></i></button>
-       <button class="menubar-btn" id="max-unmax-btn" @click="maxUnmaximizeWindow()"><i class="far fa-square"></i></button>
-       <button class="menubar-btn" id="close-btn" @click="closeWindow()"><i class="fas fa-times"></i></button>
+       <button class="titlebar-btn" id="minimize-btn" @click="minimizeWindow()"><i class="far fa-window-minimize"></i></button>
+       <button class="titlebar-btn" id="max-unmax-btn" @click="resizeWindow()"><i class="far fa-square"></i></button>
+       <button class="titlebar-btn" id="close-btn" @click="closeWindow()"><i class="fas fa-times"></i></button>
      </div>
    </div>
 </template>
 
 <script>
-import * as window from '@/menu-functions.js';
+import * as window from '@/window-functions.js';
 
 export default {
   methods: {
     minimizeWindow() {
       window.minimizeWindow();
     },
-    maxUnmaximizeWindow() {
-      window.maxUnmaxWindow();
+    resizeWindow() {
+      window.resizeWindow();
     },
     closeWindow() {
       window.closeWindow();
@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#menu-bar {
+#title-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -40,25 +40,15 @@ export default {
   -webkit-app-region: drag;
 }
 
-#menu-bar > div {
+#title-bar > div {
   height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.menubar-btn {
+.titlebar-btn {
   -webkit-app-region: no-drag;
-}
-
-.container {
-  height: calc(100vh - 30px);
-  background: $bg_dark;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1em;
 }
 
 button {
