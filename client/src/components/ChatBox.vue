@@ -1,6 +1,6 @@
 <template>
   <form class="chatbox" @submit.prevent="sendMessage()">
-    <input v-model="message" class="chatbox__input" placeholder="Send on hella Message" />
+    <input v-model="message" class="chatbox__input" placeholder="Send a Message" />
     <button type="submit" class="chatbox__button" name="send">
       <img src="@/assets/icons/send.png" alt="send">
     </button>
