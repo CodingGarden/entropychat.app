@@ -1,4 +1,5 @@
 const { remote } = require('electron');
+const os = require('os');
 
 function getCurrentWindow() {
   return remote.getCurrentWindow();
@@ -22,9 +23,14 @@ function closeWindow(window = getCurrentWindow()) {
   window.close();
 }
 
+function getOsPlatform() {
+  return os.platform();
+}
+
 module.exports = {
   getCurrentWindow,
   minimizeWindow,
   resizeWindow,
   closeWindow,
+  getOsPlatform
 };
