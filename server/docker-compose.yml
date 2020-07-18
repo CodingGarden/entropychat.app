@@ -5,7 +5,7 @@ services:
     restart: always
     volumes:
       - ./docker-data/db:/data/db
-      - ./docker-data/mongod.log:/mongod.log
+      - ./docker-data/log:/var/log/mongodb
       - ./db-entrypoint.sh:/entrypoint.sh
     ports:
       - 27018:${MONGO_PORT}
@@ -24,7 +24,7 @@ services:
       - ./:/usr/src/app:cached
       - npm_cache:/root/.npm:delegated
       - node_modules:/usr/src/app/node_modules:delegated
-      - ./docker-data/mongod.log:/mongod.log
+      - ./docker-data/log:/var/log/mongodb
       - ./api-entrypoint.sh:/entrypoint.sh
     ports:
       - ${PORT}:${PORT}

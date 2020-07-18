@@ -112,5 +112,4 @@ data/
 
 .env
 
-docker-data/*
-!docker-data/mongod.log
+docker-data

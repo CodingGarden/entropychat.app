@@ -7,8 +7,10 @@
 ################################################################################
 
 # VARIABLES
-LOG_FILE=${1:-/mongod.log}
+LOG_DIR=${1:-/var/log/mongodb}
+LOG_FILE=${2:-${LOG_DIR}/mongod.log}
 
 # MAIN
-> ${LOG_FILE}
-/usr/local/bin/docker-entrypoint.sh --logpath ${LOG_FILE} --filePermissions 777 --logappend
+> "${LOG_FILE}"
+chown -R mongodb:mongodb "${LOG_DIR}"
+/usr/local/bin/docker-entrypoint.sh --logpath "${LOG_FILE}" --filePermissions 777 --logappend
