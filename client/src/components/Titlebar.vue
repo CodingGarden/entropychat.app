@@ -128,6 +128,7 @@ export default {
   }
 
   .titlebar {
+    background: $bg_dark;
     margin-top: 3px;
     text-align: center;
     font-size: 11pt;
