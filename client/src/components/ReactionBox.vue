@@ -3,6 +3,9 @@
     <button class="reaction-btn">
       <i class="far fa-smile" style="font-size: 15px;"></i>
     </button>
+    <button class="reaction-btn" v-if="this.$props.userId === this.user._id">
+      <i class="fas fa-pen"></i>
+    </button>
     <button class="reaction-btn">
       <i class="fas fa-ellipsis-h" style="font-size: 15px;"></i>
     </button>
@@ -10,12 +13,22 @@
 </template>
 
 <script>
-export default {};
+import { useState } from "@u3u/vue-hooks";
+
+export default {
+  props: ["userId"],
+  setup() {
+    const { user } = useState("auth", ["user"]);
+
+    return {
+      user
+    };
+  }
+};
 </script>
 
 <style lang="scss">
 .reaction-box {
-  width: 3rem;
   display: inline-flex;
   justify-content: space-between;
 }

@@ -1,17 +1,15 @@
 <template>
-  <div>
-    <div class="message">
-      <div class="message__avatar">
-        <img :src="message.user.image" />
+  <div class="message">
+    <div class="message__avatar">
+      <img :src="message.user.image" />
+    </div>
+    <div class="message__contents">
+      <ReactionBox :userId="message.user._id" />
+      <div class="message__info">
+        {{message.user.name}}
+        <small>{{new Date(message.createdAt).toLocaleString()}}</small>
       </div>
-      <div class="message__contents">
-        <ReactionBox />
-        <div class="message__info">
-          {{message.user.name}}
-          <small>{{new Date(message.createdAt).toLocaleString()}}</small>
-        </div>
-        <div class="message__text">{{message.text}}</div>
-      </div>
+      <div class="message__text">{{message.text}}</div>
     </div>
   </div>
 </template>
