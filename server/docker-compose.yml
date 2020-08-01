@@ -24,6 +24,7 @@ services:
       - node_modules:/usr/src/app/node_modules:delegated
     ports:
       - ${PORT}:${PORT}
+    command:  [ "sh","-c", "/wait"]
     environment:
       PORT: ${PORT}
       JWT_SECRET: ${JWT_SECRET}
@@ -34,6 +35,10 @@ services:
       MONGO_DB_NAME: ${MONGO_DB_NAME}
       MONGO_ROOT_USER: ${MONGO_ROOT_USER}
       MONGO_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+      WAIT_HOSTS: ${MONGO_HOST}:${MONGO_PORT}
+      WAIT_HOSTS_TIMEOUT: 300
+      WAIT_SLEEP_INTERVAL: 30000
+      WAIT_HOST_CONNECT_TIMEOUT: 30000
 
 volumes:
   npm_cache:
