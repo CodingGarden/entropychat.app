@@ -1,7 +1,10 @@
 <template>
-    <form class="chatbox" @submit.prevent="sendMessage()">
-      <input v-model="message" class="chatbox__input" placeholder="Send a Message" />
-    </form>
+  <form class="chatbox" @submit.prevent="sendMessage()">
+    <input v-model="message" class="chatbox__input" placeholder="Send a Message" />
+    <button type="submit" class="chatbox__button" name="send">
+      <img src="@/assets/icons/send.png" alt="send">
+    </button>
+  </form>
 </template>
 
 <script>
@@ -36,6 +39,26 @@ export default {
 </script>
 
 <style lang="scss">
+.chatbox__button {
+  background: $primary_accent;
+  padding: 0 2rem;
+  width: 8%;
+  height: 70%;
+  outline: none;
+  border: none;
+  color: $font_color;
+  border-radius: 0px 100px 100px 0px;
+}
+
+.chatbox__button:hover {
+  background: lighten($primary_accent, 50%);
+  cursor: pointer;
+}
+
+.chatbox__button img{
+  max-height: 70%;
+}
+
 .chatbox {
   width: 100%;
   height: 70px;
@@ -54,7 +77,7 @@ export default {
   color: $font_color;
   font-family: inherit;
   font-size: 1.75rem;
-  border-radius: 100px;
+  border-radius: 100px 0px 0px 100px;
 
   &::placeholder {
     color: transparentize(white, 0.6);
