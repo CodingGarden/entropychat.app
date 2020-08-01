@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
-import Messages from '../views/Messages.vue';
+import Main from '../views/Main.vue';
 
 Vue.use(VueRouter);
 
@@ -12,9 +12,9 @@ const routes = [
     component: Home,
   },
   {
-    path: '/messages',
-    name: 'Messages',
-    component: Messages,
+    path: '/main',
+    name: 'Main',
+    component: Main,
   },
 ];
 

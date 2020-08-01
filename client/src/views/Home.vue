@@ -38,7 +38,7 @@ export default {
     watch(user, () => {
       if (user.value) {
         console.log('user!', user.value);
-        router.push('/messages');
+        router.push('/main');
       }
     });
 
