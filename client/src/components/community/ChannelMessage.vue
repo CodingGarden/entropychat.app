@@ -1,13 +1,15 @@
 <template>
   <div class="channel-message">
-    <div class="channel-message__avatar" :class="isBot && 'bot'"></div>
+    <div class="channel-message__avatar" :class="isBot && 'bot'">
+      <img :src="message.user.image"/>
+    </div>
     <div class="channel-message__body">
       <div class="channel-message__body__header">
-        <strong>{{author}}</strong>
+        <strong>{{message.user.name}}</strong>
         <span v-if="isBot">Bot</span>
-        <time>{{date}}</time>
+        <time>{{new Date(message.createdAt).toLocaleString()}}</time>
       </div>
-      <div class="channel-message__body__text">{{message}}</div>
+      <div class="channel-message__body__text">{{message.text}}</div>
     </div>
   </div>
 </template>
@@ -15,17 +17,9 @@
 <script>
 export default {
   props: {
-    author: {
-      type: String,
-      required: true,
-    },
-    date: {
-      type: String,
-      required: true,
-    },
     message: {
-      type: String,
-      required: true,
+      type: Object,
+      required: true
     },
     isBot: {
       type: Boolean,
@@ -51,6 +45,13 @@ export default {
 
       background-color: $tertiary;
       border-radius: 50%;
+
+      img {
+        width: 40px;
+        height: 40px;
+
+        border-radius: 50%;
+      }
 
       &.bot {
         background-color: $mention-detail;
@@ -104,7 +105,5 @@ export default {
         color: $white;
       }
     }
-
-
   }
 </style>

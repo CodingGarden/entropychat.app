@@ -1,76 +1,13 @@
 <template>
   <div class="channel-messages">
     <div class="channel-messages__container">
-      <ChannelMessage :author="'Manolo Ito'"
-                               :date="'07/02/2020'"
-                               :message="'This is a test message'" />
-
-      <ChannelMessage :author="'Manolo Ito'"
-                               :date="'07/02/2020'"
-                               :message="'This is a test message'" />
-
-      <ChannelMessage :author="'Manolo Ito'"
-                               :date="'07/02/2020'"
-                               :message="'This is a test message'" />
-
-      <ChannelMessage :author="'Manolo Ito'"
-                               :date="'07/02/2020'"
-                               :message="'This is a test message'" />
-
-      <ChannelMessage :author="'Manolo Ito'"
-                               :date="'07/02/2020'"
-                               :message="'This is a test message'" />
-
-      <ChannelMessage :author="'Manolo Ito'"
-                               :date="'07/02/2020'"
-                               :message="'This is a test message'" />
-
-      <ChannelMessage :author="'Manolo Ito'"
-                               :date="'07/02/2020'"
-                               :message="'This is a test message'" />
-
-      <ChannelMessage :author="'Manolo Ito'"
-                               :date="'07/02/2020'"
-                               :message="'This is a test message'" />
-
-      <ChannelMessage :author="'Manolo Ito'"
-                               :date="'07/02/2020'"
-                               :message="'This is a test message'" />
-
-      <ChannelMessage :author="'Manolo Ito'"
-                               :date="'07/02/2020'"
-                               :message="'This is a test message'" />
-
-      <ChannelMessage :author="'Manolo Ito'"
-                               :date="'07/02/2020'"
-                               :message="'This is a test message'" />
-
-      <ChannelMessage :author="'Manolo Ito'"
-                               :date="'07/02/2020'"
-                               :message="'This is a test message'" />
-
-      <ChannelMessage :author="'Manolo Ito'"
-                               :date="'07/02/2020'"
-                               :message="'This is a test message'" />
-
-      <ChannelMessage :author="'Manolo Ito'"
-                               :date="'07/02/2020'"
-                               :message="'This is a test message'" />
-
-      <ChannelMessage :author="'Manolo Ito'"
-                               :date="'07/02/2020'"
-                               :message="'This is a test message'" />
-
-      <ChannelMessage :author="'CG-BOT'"
-                               :date="'07/02/2020'"
-                               :message="'🚨 Stop spamming @ManoloIto'"
-                               :hasMention="true"
-                               :isBot="true" />
+      <ChannelMessage v-for="message in messages" :key="message._id"
+        :message="message" />
     </div>
 
     <div class="channel-messages__input-wrapper">
       <form @submit.prevent="sendMessage()">
-        <input type="text" placeholder="Message #👋welcome"/>
+        <input v-model="message" type="text" placeholder="Message #👋welcome"/>
         <i class="channel-messages__input-wrapper__add" data-feather="plus-circle"></i>
       </form>
     </div>
@@ -79,7 +16,9 @@
 
 <script>
 import ChannelMessage from '@/components/community/ChannelMessage.vue';
+import { ref, watch } from '@vue/composition-api';
 import { onMounted } from '@vue/composition-api';
+import { useState, useActions, useRouter } from '@u3u/vue-hooks';
 
 export default {
   components: {
@@ -90,6 +29,55 @@ export default {
       // eslint-disable-next-line no-undef
       feather.replace();
     });
+
+    const { router } = useRouter();
+
+    const message = ref('');
+
+    const { user } = useState('auth', [
+      'user',
+    ]);
+
+    const { loading, messages } = useState('messages', [
+      'messages',
+      'loading',
+    ]);
+
+    const { createMessage } = useActions('messages', [
+      'createMessage',
+    ]);
+
+    const { logout } = useActions('auth', [
+      'logout',
+    ]);
+
+    const { listen } = useActions('messages', [
+      'listen',
+    ]);
+
+    const sendMessage = () => {
+      createMessage({
+        text: message.value,
+      });
+      message.value = '';
+    };
+
+    watch(user, () => {
+      if (!user.value) {
+        router.push('/');
+      }
+    });
+
+    listen();
+
+    return {
+      user,
+      logout,
+      loading,
+      messages,
+      sendMessage,
+      message,
+    };
   },
 };
 </script>

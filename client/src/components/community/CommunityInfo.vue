@@ -1,10 +1,10 @@
 <template>
-  <div class="community-topbar">
+  <div class="channel-topbar">
     <i data-feather="hash"></i>
-    <h1 class="community-topbar__title">👋welcome</h1>
-    <div class="community-topbar__separator"></div>
-    <span class="community-topbar__description">This is the beginning of this community</span>
-    <Button class="community-topbar__logout" @click.native="logout()">Log Out</Button>
+    <h1 class="channel-topbar__title">👋welcome</h1>
+    <div class="channel-topbar__separator"></div>
+    <span class="channel-topbar__description">This is the beginning of this community</span>
+    <Button class="channel-topbar__logout" @click.native="logout()">Log Out</Button>
   </div>
 </template>
 
@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style lang="scss">
-  .community-topbar {
+  .channel-topbar {
     grid-area: COI;
 
     display: flex;
