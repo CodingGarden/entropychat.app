@@ -3,10 +3,10 @@
     <Communities />
     <CommunityName />
     <CommunityInfo />
-    <CommunityChannels />
+    <Channels />
     <UserInfo />
-    <CommunityChannelMessages />
-    <CommunityUserList />
+    <ChannelMessages />
+    <UserList />
   </main>
 </template>
 
@@ -14,10 +14,10 @@
 import Communities from '@/components/community/Communities.vue';
 import CommunityName from '@/components/community/CommunityName.vue';
 import CommunityInfo from '@/components/community/CommunityInfo.vue';
-import CommunityChannels from '@/components/community/CommunityChannels.vue';
+import Channels from '@/components/community/Channels.vue';
 import UserInfo from '@/components/community/UserInfo.vue';
-import CommunityChannelMessages from '@/components/community/CommunityChannelMessages.vue';
-import CommunityUserList from '@/components/community/CommunityUserList.vue';
+import ChannelMessages from '@/components/community/ChannelMessages.vue';
+import UserList from '@/components/community/UserList.vue';
 
 export default {
   name: 'Main',
@@ -25,10 +25,10 @@ export default {
     Communities,
     CommunityName,
     CommunityInfo,
-    CommunityChannels,
+    Channels,
     UserInfo,
-    CommunityChannelMessages,
-    CommunityUserList,
+    ChannelMessages,
+    UserList,
   },
 };
 </script>

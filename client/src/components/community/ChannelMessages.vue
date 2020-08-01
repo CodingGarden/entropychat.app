@@ -1,87 +1,89 @@
 <template>
-  <div class="community-channel-messages">
-    <div class="messages">
-      <CommunityChannelMessage :author="'Manolo Ito'"
+  <div class="channel-messages">
+    <div class="channel-messages__container">
+      <ChannelMessage :author="'Manolo Ito'"
                                :date="'07/02/2020'"
                                :message="'This is a test message'" />
 
-      <CommunityChannelMessage :author="'Manolo Ito'"
+      <ChannelMessage :author="'Manolo Ito'"
                                :date="'07/02/2020'"
                                :message="'This is a test message'" />
 
-      <CommunityChannelMessage :author="'Manolo Ito'"
+      <ChannelMessage :author="'Manolo Ito'"
                                :date="'07/02/2020'"
                                :message="'This is a test message'" />
 
-      <CommunityChannelMessage :author="'Manolo Ito'"
+      <ChannelMessage :author="'Manolo Ito'"
                                :date="'07/02/2020'"
                                :message="'This is a test message'" />
 
-      <CommunityChannelMessage :author="'Manolo Ito'"
+      <ChannelMessage :author="'Manolo Ito'"
                                :date="'07/02/2020'"
                                :message="'This is a test message'" />
 
-      <CommunityChannelMessage :author="'Manolo Ito'"
+      <ChannelMessage :author="'Manolo Ito'"
                                :date="'07/02/2020'"
                                :message="'This is a test message'" />
 
-      <CommunityChannelMessage :author="'Manolo Ito'"
+      <ChannelMessage :author="'Manolo Ito'"
                                :date="'07/02/2020'"
                                :message="'This is a test message'" />
 
-      <CommunityChannelMessage :author="'Manolo Ito'"
+      <ChannelMessage :author="'Manolo Ito'"
                                :date="'07/02/2020'"
                                :message="'This is a test message'" />
 
-      <CommunityChannelMessage :author="'Manolo Ito'"
+      <ChannelMessage :author="'Manolo Ito'"
                                :date="'07/02/2020'"
                                :message="'This is a test message'" />
 
-      <CommunityChannelMessage :author="'Manolo Ito'"
+      <ChannelMessage :author="'Manolo Ito'"
                                :date="'07/02/2020'"
                                :message="'This is a test message'" />
 
-      <CommunityChannelMessage :author="'Manolo Ito'"
+      <ChannelMessage :author="'Manolo Ito'"
                                :date="'07/02/2020'"
                                :message="'This is a test message'" />
 
-      <CommunityChannelMessage :author="'Manolo Ito'"
+      <ChannelMessage :author="'Manolo Ito'"
                                :date="'07/02/2020'"
                                :message="'This is a test message'" />
 
-      <CommunityChannelMessage :author="'Manolo Ito'"
+      <ChannelMessage :author="'Manolo Ito'"
                                :date="'07/02/2020'"
                                :message="'This is a test message'" />
 
-      <CommunityChannelMessage :author="'Manolo Ito'"
+      <ChannelMessage :author="'Manolo Ito'"
                                :date="'07/02/2020'"
                                :message="'This is a test message'" />
 
-      <CommunityChannelMessage :author="'Manolo Ito'"
+      <ChannelMessage :author="'Manolo Ito'"
                                :date="'07/02/2020'"
                                :message="'This is a test message'" />
 
-      <CommunityChannelMessage :author="'CG-BOT'"
+      <ChannelMessage :author="'CG-BOT'"
                                :date="'07/02/2020'"
                                :message="'🚨 Stop spamming @ManoloIto'"
                                :hasMention="true"
                                :isBot="true" />
     </div>
 
-    <div class="input-wrapper">
-      <input type="text" placeholder="Message #👋welcome"/>
-      <i data-feather="plus-circle" class="add"></i>
+    <div class="channel-messages__input-wrapper">
+      <form @submit.prevent="sendMessage()">
+        <input type="text" placeholder="Message #👋welcome"/>
+        <i class="channel-messages__input-wrapper__add" data-feather="plus-circle"></i>
+      </form>
     </div>
   </div>
 </template>
 
 <script>
-import CommunityChannelMessage from '@/components/community/CommunityChannelMessage.vue';
+import ChannelMessage from '@/components/community/ChannelMessage.vue';
 import { onMounted } from '@vue/composition-api';
 
 export default {
   components: {
-    CommunityChannelMessage,
+    ChannelMessage,
   },
   setup() {
     onMounted(() => {
@@ -93,7 +95,7 @@ export default {
 </script>
 
 <style lang="scss">
-  .community-channel-messages {
+  .channel-messages {
     grid-area: CCM;
 
     display: flex;
@@ -102,7 +104,7 @@ export default {
 
     background-color: $secondary;
 
-    .messages {
+    &__container {
       display: flex;
       flex-direction: column;
 
@@ -125,7 +127,7 @@ export default {
       }
     }
 
-    .input-wrapper {
+    &__input-wrapper {
       width: 100%;
       padding: 0 16px;
 
@@ -150,17 +152,10 @@ export default {
 
         ~ svg {
           position: relative;
-          top: -47%;
+          top: -32px;
           left: 10px;
           transition: 180ms ease-in-out;
         }
-      }
-
-      .input-icon {
-        width: 24px;
-        height: 24px;
-
-        color: $gray;
       }
     }
   }

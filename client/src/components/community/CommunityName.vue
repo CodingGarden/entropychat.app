@@ -1,6 +1,6 @@
 <template>
   <div class="community-name">
-    <h1>CodingGardenWithCJ</h1>
+    <h1 class="community-name__title">CodingGardenWithCJ</h1>
     <i data-feather="chevron-down"></i>
   </div>
 </template>
@@ -34,7 +34,7 @@ export default {
 
     z-index: 2;
 
-    h1 {
+    &__title {
       font-size: 16px;
       font-weight: bold;
       color: $white;

@@ -1,27 +1,41 @@
 <template>
-  <div class="community-info">
+  <div class="community-topbar">
     <i data-feather="hash"></i>
-    <h1>👋welcome</h1>
-    <div class="separator"></div>
-    <span class="description">This is the beginning of this community</span>
+    <h1 class="community-topbar__title">👋welcome</h1>
+    <div class="community-topbar__separator"></div>
+    <span class="community-topbar__description">This is the beginning of this community</span>
+    <Button class="community-topbar__logout" @click.native="logout()">Log Out</Button>
   </div>
 </template>
 
 <script>
 import { onMounted } from '@vue/composition-api';
+import { useActions } from '@u3u/vue-hooks';
+import Button from '@/components/Button.vue';
 
 export default {
+  components: {
+    Button,
+  },
   setup() {
     onMounted(() => {
       // eslint-disable-next-line no-undef
       feather.replace();
     });
+
+    const { logout } = useActions('auth', [
+      'logout',
+    ]);
+
+    return {
+      logout,
+    };
   },
 };
 </script>
 
 <style lang="scss">
-  .community-info {
+  .community-topbar {
     grid-area: COI;
 
     display: flex;
@@ -35,7 +49,7 @@ export default {
 
     z-index: 2;
 
-    h1 {
+    &__title {
       font-size: 16px;
       font-weight: bold;
 
@@ -51,7 +65,7 @@ export default {
       color: $symbol;
     }
 
-    .separator {
+    &__separator {
       width: 1px;
       height: 24px;
 
@@ -61,9 +75,14 @@ export default {
       opacity: 0.2;
     }
 
-    .description {
+    &__description {
       font-size: 15px;
       color: $gray;
+    }
+
+    &__logout {
+      font-size: 1rem !important;
+      margin-left: auto;
     }
   }
 </style>

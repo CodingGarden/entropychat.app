@@ -1,13 +1,13 @@
 <template>
-  <div class="community-channel-message">
-    <div class="avatar" :class="isBot && 'bot'"></div>
-    <div class="message">
-      <div class="header">
+  <div class="channel-message">
+    <div class="channel-message__avatar" :class="isBot && 'bot'"></div>
+    <div class="channel-message__body">
+      <div class="channel-message__body__header">
         <strong>{{author}}</strong>
         <span v-if="isBot">Bot</span>
         <time>{{date}}</time>
       </div>
-      <div class="content">{{message}}</div>
+      <div class="channel-message__body__text">{{message}}</div>
     </div>
   </div>
 </template>
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style lang="scss">
-  .community-channel-message {
+  .channel-message {
     display: flex;
     align-items: center;
 
@@ -45,7 +45,7 @@ export default {
 
     background-color: transparent;
 
-    .avatar {
+    &__avatar {
       width: 40px;
       height: 40px;
 
@@ -57,52 +57,54 @@ export default {
       }
     }
 
-    .message {
+    &__body {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
 
       min-height: 40px;
       margin-left: 17px;
-    }
 
-    .header {
-      display: flex;
-      align-items: center;
+      &__header {
+        display: flex;
+        align-items: center;
 
-      strong {
+        strong {
+          font-size: 14px;
+
+          color: $white;
+        }
+
+        span {
+          padding: 4px 5px;
+          margin-left: 6px;
+
+          border-radius: 4px;
+
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: 11px;
+
+          background-color: $discord;
+          color: $white;
+        }
+
+        time {
+          margin-left: 6px;
+          font-size: 11px;
+
+          color: $gray;
+        }
+      }
+
+      &__text {
+        text-align: left;
         font-size: 14px;
 
         color: $white;
       }
-
-      span {
-        padding: 4px 5px;
-        margin-left: 6px;
-
-        border-radius: 4px;
-
-        text-transform: uppercase;
-        font-weight: bold;
-        font-size: 11px;
-
-        background-color: $discord;
-        color: $white;
-      }
-
-      time {
-        margin-left: 6px;
-        font-size: 11px;
-
-        color: $gray;
-      }
     }
 
-    .content {
-      text-align: left;
-      font-size: 14px;
 
-      color: $white;
-    }
   }
 </style>

@@ -1,24 +1,24 @@
 <template>
   <div class="community-channels">
-    <div class="category">
-      <span>🌱Coding garden</span>
+    <div class="community-channels__category">
+      <span class="community-channels__name">🌱Coding garden</span>
       <i data-feather="plus"></i>
     </div>
 
-    <ChannelButton :name="'👋welcome'" />
-    <ChannelButton :name="'🗣introductions'" />
-    <ChannelButton :name="'📣announcements'" />
-    <ChannelButton :name="'📺new-videos'" />
+    <Channel :name="'👋welcome'" />
+    <Channel :name="'🗣introductions'" />
+    <Channel :name="'📣announcements'" />
+    <Channel :name="'📺new-videos'" />
   </div>
 </template>
 
 <script>
 import { onMounted } from '@vue/composition-api';
-import ChannelButton from '@/components/community/ChannelButton.vue';
+import Channel from '@/components/community/Channel.vue';
 
 export default {
   components: {
-    ChannelButton,
+    Channel,
   },
   setup() {
     onMounted(() => {
@@ -40,14 +40,14 @@ export default {
 
     background-color: $tertiary;
 
-    .category {
+    &__category {
       display: flex;
       align-content: center;
       justify-content: space-between;
 
       margin-bottom: 6px;
 
-      span {
+      &__name {
         text-transform: uppercase;
         font-size: 12px;
         font-weight: 500;

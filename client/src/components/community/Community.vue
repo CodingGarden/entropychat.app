@@ -1,9 +1,11 @@
 <template>
-  <button :class="[ 'community-button',
-                    isHome && 'home' || 'notHome',
-                    hasNotifications && 'notification',
-                    mentions > 0 && 'mention', ]">
-    <span v-if="isHome"><img src="@/assets/logo-white.png" /></span>
+  <button :class="[ 'community',
+                    isHome && 'community--is-home' || 'community--is-not-home',
+                    hasNotifications && 'community--has-notification',
+                    mentions > 0 && 'community--has-mention', ]">
+    <span v-if="isHome">
+      <img class="community__logo" src="@/assets/logo-white.png" />
+    </span>
   </button>
 </template>
 
@@ -28,7 +30,7 @@ export default {
 </script>
 
 <style lang="scss">
-  .community-button {
+  .community {
     width: 48px;
     height: 48px;
 
@@ -47,7 +49,7 @@ export default {
 
     border-radius: 25px;
 
-    img {
+    &__logo {
       width: 32px;
       height: 32px;
     }
@@ -58,7 +60,7 @@ export default {
       border-radius: 15px;
     }
 
-    &.home {
+    &--is-home {
       background-color: $primary;
 
       &.active, &:hover {
@@ -66,13 +68,13 @@ export default {
       }
     }
 
-    &.notHome {
+    &--is-not-home {
       &.active, &:hover {
         background-color: $discord;
       }
     }
 
-    &.notification {
+    &--has-notification {
       &::before {
         content: '';
 
@@ -88,7 +90,7 @@ export default {
       }
     }
 
-    &.mention {
+    &--has-mention {
       &::after {
         // TODO: Bind to computed property or something
         content: '1';

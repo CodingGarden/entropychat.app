@@ -1,32 +1,32 @@
 <template>
-  <div class="community-user-list">
-    <span class="role">Pruners - 11</span>
+  <div class="user-list">
+    <span class="user-list__role">Pruners - 11</span>
     <div>
       <User :name="'John Doe'"></User>
       <User :name="'Jane Doe'"></User>
     </div>
 
-    <span class="role">Avocados - 1</span>
+    <span class="user-list__role">Avocados - 1</span>
     <div>
         <User :name="'Eliot Carrillo'"></User>
     </div>
 
-    <span class="role">Twitch subscriber: tier-3 - 1</span>
+    <span class="user-list__role">Twitch subscriber: tier-3 - 1</span>
     <div>
         <User :name="'Braden Larson'"></User>
     </div>
 
-    <span class="role">Fertilizers - 4</span>
+    <span class="user-list__role">Fertilizers - 4</span>
     <div>
         <User :name="'Arjan Nunez'"></User>
     </div>
 
-    <span class="role">Twitch subscriber: tier 2 - 2</span>
+    <span class="user-list__role">Twitch subscriber: tier 2 - 2</span>
     <div>
         <User :name="'Kayson Fenton'"></User>
     </div>
 
-    <span class="role">Twitch subscriber: tier 1 - 40</span>
+    <span class="user-list__role">Twitch subscriber: tier 1 - 40</span>
     <div>
         <User :name="'Miya Milne'"></User>
         <User :name="'Alby Coleman'"></User>
@@ -36,7 +36,7 @@
         <User :name="'Kaynan Busby'"></User>
     </div>
 
-    <span class="role">Online - 1</span>
+    <span class="user-list__role">Online - 1</span>
     <div>
         <User :name="'CG-BOT'" :isBot="true"></User>
     </div>
@@ -61,7 +61,7 @@ export default {
 </script>
 
 <style lang="scss">
-  .community-user-list {
+  .user-list {
     grid-area: CUL;
 
     display: flex;
@@ -93,7 +93,7 @@ export default {
     -ms-user-select: none;
     user-select: none;
 
-    .role {
+    &__role {
       margin-top: 20px;
 
       text-transform: uppercase;
@@ -102,71 +102,5 @@ export default {
 
       color: $gray;
     }
-
-    .user {
-      margin-top: 5px;
-      padding: 5px;
-
-      display: flex;
-      align-items: center;
-
-      cursor: pointer;
-
-      font-size: 13px;
-
-      border-radius: 4px;
-
-      background: transparent;
-      transition: background-color 0.3s;
-
-      &:hover {
-        background-color: rgba(255, 255, 255, 0.05);
-      }
-
-      strong {
-        margin-left: 13px;
-
-        font-weight: 500;
-
-        color: $white;
-
-        opacity: 0.7;
-
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-      }
-
-      span {
-        margin-left: 9px;
-
-        background-color: $discord;
-
-        color: $white;
-
-        border-radius: 4px;
-
-        padding: 4px 5px;
-
-        text-transform: uppercase;
-        font-weight: bold;
-        font-size: 11px;
-      }
-
-      .avatar {
-        flex-shrink: 0;
-
-        width: 32px;
-        height: 32px;
-
-        border-radius: 25px;
-        background-color: $secondary;
-
-        &.bot {
-          background-color: $mention-detail;
-        }
-      }
-    }
-
   }
 </style>

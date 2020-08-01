@@ -1,18 +1,21 @@
 <template>
-  <div class="user-info">
-    <div class="profile">
-      <div class="avatar"></div>
+  <div class="user">
+    <div class="user__profile">
+      <div class="user__profile__avatar"></div>
 
-      <div class="info">
-        <strong>Manolo Ito</strong>
-        <span>#1234</span>
+      <div class="user__profile__info">
+        <strong class="user__profile__info__name">Manolo Ito</strong>
+        <span class="user__profile__info__id">#1234</span>
       </div>
     </div>
 
-    <div class="user-settings">
-      <i data-feather="mic" class="mic"></i>
-      <i data-feather="headphones" class="headphone"></i>
-      <i data-feather="settings" class="settings"></i>
+    <div class="user__actions">
+      <!-- TODO -->
+      <!-- It was mentioned on stream we'll need to use the svg icons rather than png from assets folder -->
+      <!-- I'm leaving this comment as a reminder and keeping feather icons to illustrate how it will look like -->
+      <span class="user__actions__mic"><i data-feather="mic"></i></span>
+      <span class="user__actions__headphone"><i data-feather="headphones"></i></span>
+      <span class="user__actions__settings"><i data-feather="settings"></i></span>
     </div>
   </div>
 </template>
@@ -31,7 +34,7 @@ export default {
 </script>
 
 <style lang="scss">
-  .user-info {
+  .user {
     grid-area: USR;
 
     display: flex;
@@ -43,11 +46,11 @@ export default {
     background-color: $quinary;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 0px 0px;
 
-    .profile {
+    &__profile {
       display: flex;
       align-items: center;
 
-      .avatar {
+      &__avatar {
         width: 32px;
         height: 32px;
 
@@ -55,34 +58,34 @@ export default {
         background-color: $gray;
       }
 
-      .info {
+      &__info {
         display: flex;
         flex-direction: column;
 
         margin-left: 8px;
 
-        strong {
+        &__name {
           color: $white;
           font-size: 13px;
           display: block;
         }
 
-        span {
+        &__id {
           color: $gray;
           font-size: 13px;
         }
       }
     }
 
-    .user-settings {
+    &__actions {
       display: flex;
       align-items: center;
 
-      svg:not(:first-child) {
+      span:not(:first-child) {
         margin-left: 7px;
       }
 
-      .mic {
+      &__mic > svg {
         width: 16px;
         height: 16px;
 
@@ -97,7 +100,7 @@ export default {
         }
       }
 
-      .headphone {
+      &__headphone > svg {
         width: 16px;
         height: 16px;
 
@@ -112,7 +115,7 @@ export default {
         }
       }
 
-      .settings {
+      &__settings > svg {
         width: 16px;
         height: 16px;
 

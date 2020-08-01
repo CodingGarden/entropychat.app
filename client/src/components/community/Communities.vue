@@ -1,29 +1,29 @@
 <template>
   <div class="communities">
-    <CommunityButton :isHome="true" />
+    <Community :isHome="true" />
 
-    <div class="separator"></div>
+    <div class="communities__separator"></div>
 
-    <CommunityButton draggable="true" />
-    <CommunityButton :hasNotifications="true" :mentions="1" draggable="true" />
-    <CommunityButton draggable="true" />
-    <CommunityButton :mentions="1" draggable="true" />
-    <CommunityButton :hasNotifications="true" draggable="true" />
-    <CommunityButton draggable="true" />
-    <CommunityButton draggable="true" />
-    <CommunityButton draggable="true" />
-    <CommunityButton draggable="true" />
-    <CommunityButton draggable="true" />
-    <CommunityButton draggable="true" />
+    <Community draggable="true" />
+    <Community :hasNotifications="true" :mentions="1" draggable="true" />
+    <Community draggable="true" />
+    <Community :mentions="1" draggable="true" />
+    <Community :hasNotifications="true" draggable="true" />
+    <Community draggable="true" />
+    <Community draggable="true" />
+    <Community draggable="true" />
+    <Community draggable="true" />
+    <Community draggable="true" />
+    <Community draggable="true" />
   </div>
 </template>
 
 <script>
-import CommunityButton from '@/components/community/CommunityButton.vue';
+import Community from '@/components/community/Community.vue';
 
 export default {
   components: {
-    CommunityButton,
+    Community,
   },
 };
 </script>
@@ -51,7 +51,7 @@ export default {
       scrollbar-width: none;
     }
 
-    .separator {
+    &__separator {
       width: 32px;
 
       border-bottom: 2px solid $quinary;
