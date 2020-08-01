@@ -5,14 +5,16 @@ services:
     restart: always
     volumes:
       - ./docker-data/db:/data/db
+      - ./docker-data/log:/var/log/mongodb
+      - ./db-entrypoint.sh:/entrypoint.sh
     ports:
       - 27018:${MONGO_PORT}
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+    entrypoint: ['bash', '/entrypoint.sh']
 
   api:
-    # TODO: wait for mongodb to be available...
     image: entropychat.api
     build: .
     restart: on-failure
@@ -22,6 +24,8 @@ services:
       - ./:/usr/src/app:cached
       - npm_cache:/root/.npm:delegated
       - node_modules:/usr/src/app/node_modules:delegated
+      - ./docker-data/log:/var/log/mongodb
+      - ./api-entrypoint.sh:/entrypoint.sh
     ports:
       - ${PORT}:${PORT}
     environment:
@@ -34,6 +38,7 @@ services:
       MONGO_DB_NAME: ${MONGO_DB_NAME}
       MONGO_ROOT_USER: ${MONGO_ROOT_USER}
       MONGO_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+    entrypoint: ['sh', '/entrypoint.sh']
 
 volumes:
   npm_cache:
