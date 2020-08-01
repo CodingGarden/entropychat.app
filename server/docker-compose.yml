@@ -20,8 +20,6 @@ services:
       - db
     volumes:
       - ./:/usr/src/app:cached
-      - npm_cache:/root/.npm:delegated
-      - node_modules:/usr/src/app/node_modules:delegated
     ports:
       - ${PORT}:${PORT}
     environment:
@@ -34,7 +32,3 @@ services:
       MONGO_DB_NAME: ${MONGO_DB_NAME}
       MONGO_ROOT_USER: ${MONGO_ROOT_USER}
       MONGO_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
-
-volumes:
-  npm_cache:
-  node_modules:
