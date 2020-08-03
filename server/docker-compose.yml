@@ -24,7 +24,6 @@ services:
       - node_modules:/usr/src/app/node_modules:delegated
     ports:
       - ${PORT}:${PORT}
-    command:  [ "sh","-c", "/wait"]
     environment:
       PORT: ${PORT}
       JWT_SECRET: ${JWT_SECRET}
