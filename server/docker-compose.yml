@@ -12,7 +12,6 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
 
   api:
-    # TODO: wait for mongodb to be available...
     image: entropychat.api
     build: .
     restart: on-failure
@@ -25,6 +24,7 @@ services:
     ports:
       - ${PORT}:${PORT}
     environment:
+      WAIT_HOSTS: ${MONGO_HOST}:${MONGO_PORT}
       PORT: ${PORT}
       JWT_SECRET: ${JWT_SECRET}
       GITHUB_CLIENT_ID: ${GITHUB_CLIENT_ID}
