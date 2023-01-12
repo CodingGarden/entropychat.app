@@ -1,0 +1,20 @@
+name: Deploy Latest Docker Image
+on:
+  push:
+    branches:
+      - master
+  release:
+    types: [published]
+jobs:
+    Deploy_Latest_Docker:
+      name: Deploy_Latest_Docker
+      runs-on: ubuntu-latest
+      steps:
+      - name: run docker-compose up
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: sudo docker-compose up -d
+          host: ${{ secrets.HOST }}
+          username: AWS_USERNAME_GOES_HERE
+          passphrase: ${{ secrets.PASSPHRASE }}
+          privateKey: ${{ secrets.PRIVATE_KEY }}
