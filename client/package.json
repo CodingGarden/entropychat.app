@@ -20,6 +20,7 @@
     "core-js": "^3.6.4",
     "feathers-hooks-common": "^5.0.3",
     "feathers-vuex": "^3.10.4",
+    "inspirational-quotes": "^1.0.8",
     "socket.io-client": "^2.3.0",
     "vue": "^2.6.11",
     "vue-router": "^3.1.6",
