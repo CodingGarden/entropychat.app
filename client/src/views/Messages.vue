@@ -1,5 +1,6 @@
 <template>
   <div class="messages">
+    <Titlebar />
     <Navbar></Navbar>
     <main class="messages__main">
       <div class="messages__main--body">
@@ -18,11 +19,13 @@ import { useState, useActions, useRouter } from '@u3u/vue-hooks';
 import Navbar from '@/components/Navbar.vue';
 import ChatBox from '@/components/ChatBox.vue';
 import Message from '@/components/Message.vue';
+import Titlebar from '@/components/Titlebar.vue';
 
 export default {
   name: 'Messages',
   components: {
     Navbar,
+    Titlebar,
     ChatBox,
     Message,
     // Button,
